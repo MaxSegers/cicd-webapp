@@ -7,6 +7,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    services:
+      # Define a service for your API
+      api:
+        image: maxsegers:3.0
+        ports:
+          - 3000:3000
+        options: --name=localhost
+
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
