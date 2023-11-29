@@ -4,8 +4,8 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Install dependencies in seperate layer (this can significantly speed up the build process).
-COPY ./webapp/package.json ./webapp/yarn.lock ./
+COPY ./package.json ./yarn.lock ./
 RUN yarn install --frozen-lockfile
-COPY ./webapp .
+COPY ./ .
 EXPOSE 3000
 CMD ["yarn", "start"]
